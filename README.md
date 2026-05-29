@@ -62,13 +62,18 @@ Monitor keywords, track trends, discover engaged users, and visualize engagement
 - Important notes:
   - Stored tweet data is only available for roughly the most recent 6+ months.
   - For `get stored tweets`, please request no more than a 1-month time window per call. Larger ranges may return too much data and can overload the response.
+  - If you receive a `503` error, shorten the `createdAfter` / `createdBefore` time window and try again.
 - Query parameters:
-  - userId (array, required): Comma-separated user IDs.
+  - screenName (array, optional): Comma-separated screen names.
+  - userId (array, optional): Comma-separated user IDs.
   - createdAfter (string, optional): ISO 8601 timestamp.
   - createdBefore (string, optional): ISO 8601 timestamp.
-- Example:
+- Examples:
   ```bash
-  curl -i -H "X-API-Key: YOUR-API-KEY" "https://app.pawx.ai/api/v1/twitterUsers/stored-tweets?userId=2259434528,902926941413453824&createdAfter=2025-08-11T12:00:00Z&createdBefore=2025-08-11T23:59:59Z"
+  curl -i -H "X-API-Key: YOUR-API-KEY" "https://app.pawx.ai/api/v1/twitterUsers/stored-tweets?userId=2259434528,902926941413453824&createdAfter=2026-02-20T00:00:00Z&createdBefore=2026-02-26T23:59:59Z"
+  ```
+  ```bash
+  curl -i -H "X-API-Key: YOUR-API-KEY" "https://app.pawx.ai/api/v1/twitterUsers/stored-tweets?screenName=elonmusk&createdAfter=2026-02-20T00:00:00Z&createdBefore=2026-02-26T23:59:59Z"
   ```
 - Sample response :
   ```bash

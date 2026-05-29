@@ -3,3 +3,4 @@
 *.csv
 *.py
 *.json
+.DS_Store
